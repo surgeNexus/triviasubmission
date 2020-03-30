@@ -23,7 +23,7 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 
-var recaptcha = new Recaptcha('6Lc5WeQUAAAAAB0C-Jsn_6k2Vx4W4l8TPaGmRePG', '6Lc5WeQUAAAAAID86imcGrVBPkyBkDrzJT7xxrS3', {callback:'cb'});
+var recaptcha = new Recaptcha('6LdoWOUUAAAAAHXq0m_3E-IFwJton3cqE7OuM-du', '6LdoWOUUAAAAAJRY5UVbAVNusPqiQ9mzZBvvr0eL', {callback:'cb'});
 
 app.get("/", function(req, res){
     TriviaSub.find({}).sort({upvote : 'desc'}).exec(function(err, foundSub){
