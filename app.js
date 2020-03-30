@@ -72,7 +72,7 @@ app.put("/submit/:id", function(req, res){
     })
 });
 
-app.get("/admin", function(req, res){
+app.get("/admin1234", function(req, res){
     TriviaSub.find({}).sort({upvote : 'desc'}).exec(function(err, foundSub){
         if(err){
             console.log(err);
