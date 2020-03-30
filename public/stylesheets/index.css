@@ -1,0 +1,51 @@
+.bg-black {
+    background-color: black;
+}
+
+body {
+    background-color: black;
+    color: whitesmoke;
+    font-family: 'Muli', sans-serif;
+}
+
+.head-room {
+    padding-top: 60px;
+}
+
+.page-center {
+    padding-left: auto;
+    padding-right: auto;
+}
+
+.pad-around {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.border {
+    border: 5px solid white;
+    background-color: darkgray;
+    color: black;
+}
+
+.text-center {
+    text-align: center;
+}
+
+hr {
+    height: 1px;
+    color: gray;
+    background-color: gray;
+    border: none;
+}
+
+.pad-form {
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.table {
+    color: white;
+}

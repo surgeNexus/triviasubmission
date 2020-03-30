@@ -1,0 +1,49 @@
+<%- include('partials/header') %>
+
+
+<div class="container head-room">
+    <div class="row text-center">
+            <div class="col-md-12 col-sm-6 table">
+                <table class="table table-striped container sortable table-sort">
+                    <thead>
+                        <tr>
+                            <th>Who</th>
+                            <th>Category</th>
+                            <th>Votes</th>
+                        </tr>
+                    </thead>
+                <div class>
+                    <% submissions.forEach(function(submission){ %>
+                    <div class="table">
+                        <tbody>
+                            <tr class="">
+                                <td><%= submission.name %></td>
+                                <td class=""><%= submission.submission %></td>
+                                <form action="/delete/<%= submission.id %>?_method=DELETE" method="POST" id="new-form">
+                                <td><%= submission.upvote %> <button Onclick="return ConfirmDelete();" name="upvote" class="btn btn-link"><i class="fas fa-trash"></i></button></td>
+                                </form>
+                            </tr>
+                        </tbody>
+                    </div>
+                    <% }) %>
+                </div>
+            </div>
+        </table>
+    </div>
+</div>
+
+<%- include ('partials/footer') %>
+
+<script>
+    function ConfirmDelete()
+    {
+      var x = confirm("This will permanently eliminate this Artist's entire profile. Are you certain you wish to proceed?");
+      if (x)
+          return true;
+      else
+        return false;
+    }
+</script> 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
