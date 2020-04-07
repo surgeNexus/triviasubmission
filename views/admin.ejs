@@ -10,6 +10,7 @@
                             <th>Who</th>
                             <th>Category</th>
                             <th>Votes</th>
+                            <th>Reset Votes</th>
                         </tr>
                     </thead>
                 <div class>
@@ -19,9 +20,13 @@
                             <tr class="">
                                 <td><%= submission.name %></td>
                                 <td class=""><%= submission.submission %></td>
-                                <form action="/delete/<%= submission.id %>?_method=DELETE" method="POST" id="new-form">
-                                <td><%= submission.upvote %> <button Onclick="return ConfirmDelete();" name="upvote" class="btn btn-link"><i class="fas fa-trash"></i></button></td>
+                                <form action="/reset/<%= submission.id %>?_method=PUT" method="POST" id="new-form">
+                                <td><%= submission.upvote %> <button Onclick="return ConfirmReset();" name="upvotereset" class="btn btn-link"><i class="fas fa-undo"></button></td>
                                 </form>
+                                <form action="/delete/<%= submission.id %>?_method=DELETE" method="POST" id="new-form">
+                                <td> <button Onclick="return ConfirmDelete();" name="upvote" class="btn btn-link"><i class="fas fa-trash"></i></button></td>
+                                </form>
+                                
                             </tr>
                         </tbody>
                     </div>
@@ -37,7 +42,17 @@
 <script>
     function ConfirmDelete()
     {
-      var x = confirm("This will permanently eliminate this Artist's entire profile. Are you certain you wish to proceed?");
+      var x = confirm("This will permanently eliminate this submission. Are you certain you wish to proceed?");
+      if (x)
+          return true;
+      else
+        return false;
+    }
+</script> 
+<script>
+    function ConfirmReset()
+    {
+      var x = confirm("This will reset the vote count for this submission. Are you certain you wish to proceed?");
       if (x)
           return true;
       else

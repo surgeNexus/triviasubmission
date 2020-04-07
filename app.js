@@ -72,6 +72,20 @@ app.put("/submit/:id", function(req, res){
     })
 });
 
+app.put("/reset/:id", function(req, res){
+    TriviaSub.findById(req.params.id, function(err, updatedSub){
+        if(err){
+            console.log(err);
+            res.redirect("back");
+        } else {
+            var upvote = updatedSub.upvote = 1;
+            updatedSub.upvote = upvote;
+            updatedSub.save();
+            res.redirect("back");
+        }
+    })
+});
+
 app.get("/admin1234", function(req, res){
     TriviaSub.find({}).sort({upvote : 'desc'}).exec(function(err, foundSub){
         if(err){
